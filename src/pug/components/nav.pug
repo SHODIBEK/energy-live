@@ -1,0 +1,9 @@
+nav#navbar.navbar
+  ul.nav
+    li.nav-item
+        a.nav-link(href="#hero")
+          span Главная
+    each object, key in data.header.menu
+      li.nav-item
+        a.nav-link(href!=object.url)
+          span!=object.name

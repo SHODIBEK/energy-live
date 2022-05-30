@@ -1,0 +1,72 @@
+main.aroma-inner
+  .container
+    .aroma__wrapper
+      include ../components/breadcrumb
+      h1.aroma__title.title
+        | Аромат терапия
+        span все для вас
+      .aroma-inner__top
+        .aroma-inner__block
+          h2.aroma-inner__name
+            | Нюхательный флакон <span> (противовирусный) </span>
+          .aroma-inner__mobile.js-aroma.swiper
+            .swiper-wrapper
+              -for(var i = 0; i < 2; i++) {
+                .swiper-slide
+                  .aroma-inner__img
+                    img(src=`./images/aroma/item-${i+1}.jpg`, alt="")
+              -}
+            .swiper-navigation
+              .swiper__button-prev
+                +svg('swiper-left')
+              .swiper__button-next
+                +svg('swiper-right')
+          .aroma-inner__subtitle
+            p Следует отметить, что социально-экономическое развитие не оставляет шанса для приоритизации разума над эмоциями. Действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть превращены в посмешище, хотя само их существование приносит несомненную пользу обществу! Разнообразный и богатый опыт говорит нам, что базовый вектор развития влечет за собой процесс внедрения и модернизации экспериментов, поражающих по своей масштабности и грандиозности.
+          .aroma-inner__price
+            p Цена: <span>5 мл / 1 200 &#8381;</span>
+            button(type="button").btn.btn__secondary.js-modal-product
+              | Заказать
+        .aroma-inner__image
+          .js-aroma.swiper
+            .swiper-wrapper
+              -for(var i = 0; i < 2; i++) {
+                .swiper-slide
+                  .aroma-inner__img
+                    img(src=`./images/aroma/item-${i+1}.jpg`, alt="")
+              -}
+            .swiper-navigation
+              .swiper__button-prev
+                +svg('swiper-left')
+              .swiper__button-next
+                +svg('swiper-right')
+      .aroma-inner__bottom
+        .default-section
+          h2 Подробное описание
+          p В то время как большинство массажей узкоспециализированны и справляются с одной основной проблемой, кобидо отличается универсальностью. Эта процедура рекомендована обладателям как жирной, так и сухой кожи, при наличии старческих пятен и морщин, а также при угревой сыпи. Помимо избавления от косметических дефектов, этот вид массажа лица помогает при головных болях и избавляет от депрессии.
+          p Кобидо делают курсом из 10 процедур, встречаясь с массажистом дважды в неделю. Видимый результат становится заметным в среднем через 3 посещения салона. Для его поддержания, после прохождения курса следует возвращаться к специалисту 1-2 раза в месяц.
+          p В Японии стоимость одной встречи со специалистом может достигать 450 долларов. Это объясняется тем, что данный вид процедуры избавляет клиента от необходимости более агрессивного вмешательства в его внешность — то есть инъекционного либо аппаратного воздействия. Мобилизуя естественные ресурсы организма и стимулируя циркуляцию энергии Ци, кобидо создает натуральный эффект лифтинга и восстанавливает баланс влажности кожи лица.
+    picture.large-line
+      source(srcset="/images/line-large.svg" media="(min-width: 1023px)")
+      img(src="./images/small-line.svg", alt="")
+  .other-product
+    .other-product__title
+      | Другие товары
+    .other-product__items.js-other-slider.swiper
+      .swiper-wrapper
+        each object in data.aroma
+          .swiper-slide
+            a.aroma__item(href="aroma-inner.html" title!=object.title)
+              .aroma__image
+                img(src=`${baseDir}images/aroma/${object.img}.jpg`, alt="")
+                span.aroma__info
+                  +svg('bag')
+              h2.aroma__name!=object.title
+              .aroma__bottom
+                .aroma__price!=object.price
+      .swiper-scrollbar
+    .swiper-navigation
+        .swiper__button-prev
+          +svg('other-left')
+        .swiper__button-next
+          +svg('other-right')

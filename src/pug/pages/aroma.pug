@@ -1,0 +1,25 @@
+main.aroma
+  .container
+    .aroma__wrapper
+      h1.aroma__title.title
+        | Аромат терапия
+        span все для вас
+      .aroma__subtitle
+        p Все средства изготавливаются на основе натуральных Эфирных <br>Масел в авторском исполнении, с индивидуальным подходом.
+      .aroma__items
+        each object in data.aroma
+          a.aroma__item(href="aroma-inner.html" title!=object.title)
+            .aroma__image
+              +lazyImage({
+                src: `${baseDir}images/aroma/${object.img}.jpg`,
+                alt: object.title,
+                appear: false,
+              })
+              span.aroma__info
+                +svg('bag')
+            h2.aroma__name!=object.title
+            .aroma__bottom
+              .aroma__price!=object.price
+              .aroma__link
+                span Подробнее
+                +svg('link')

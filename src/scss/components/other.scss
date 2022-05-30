@@ -1,0 +1,92 @@
+body .other-product {
+  max-width: 320px;
+  margin: 0 auto;
+  padding-left: 16px;
+  position: relative;
+  @include desktop {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  &__title {
+    margin-bottom: 24px;
+    font-family: $font-prata;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #E7BA77;
+
+    @include desktop {
+      margin-bottom: 48px;
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+
+  &__items {
+    position: relative;
+  }
+
+  .swiper-navigation {
+    position: absolute;
+    left: -117px;
+    right: -117px;
+    top: 50%;
+    bottom: unset;
+    height: 0;
+    transform: translateY(-50%);
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .swiper-slide {
+    @include mobile {
+      width: auto;
+    }
+  }
+
+  .aroma__item {
+    margin-top: 0!important;
+
+    @include mobile {
+      width: 212px;
+    }
+  }
+
+  .swiper__button {
+    &-prev,
+    &-next {
+      position: absolute;
+      top: 0;
+      transition: $duration-normal;
+      @include hover {
+        opacity: 0.5;
+      }
+    }
+
+    &-prev {
+      left: 0;
+    }
+
+    &-next {
+      right: 0;
+    }
+  }
+
+  .swiper-scrollbar {
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .aroma__name {
+    font-size: 16px;
+    line-height: 22px;
+    @include desktop {
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}

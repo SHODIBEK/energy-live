@@ -1,0 +1,32 @@
+extends pug/base
+
+prepend vars
+	//-
+
+append vars
+	- title = 'Энергия жизни - Аромат терапия'
+	- meta.description = 'Описание страницы'
+	- meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover'
+	- link.icon = './favicon/favicon.ico'
+	- link.appleTouchIcon180x180 = './favicon/apple-touch-icon.png'
+	- link.icon32x32 = './favicon/favicon-32x32.png'
+	- link.icon16x16 = './favicon/favicon-16x16.png'
+	- meta.formatDetection = 'telephone=no'
+	- meta.themeColor = '#E7BA77'
+	- defaultLink = 'javascript:void(0);'
+	- body.classList = ['inner-page']
+
+block content
+	include pug/data
+
+	.site
+		include pug/components/header
+
+		include pug/pages/aroma-inner
+
+		include pug/components/footer
+
+		include pug/components/top
+		include pug/components/popup-session
+		include pug/components/popup-product
+	//- include pug/components/analytics

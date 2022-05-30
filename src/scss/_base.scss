@@ -1,0 +1,337 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	position: relative;
+	overflow-x: hidden;
+	min-height: 100vh;
+	box-sizing: border-box;
+	font-family: $font-primary;
+	scroll-behavior: smooth;
+
+	&.has-cursor,
+	&.has-cursor * {
+		// stylelint-disable-next-line
+		cursor: none !important;
+	}
+
+	&.is-lock-scroll,
+	&.is-lock-scroll body {
+		overflow: hidden;
+	}
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	text-decoration-skip: objects;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+main {
+	flex: 1;
+	z-index: 0;
+}
+
+
+p {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 16px;
+	line-height: 28px;
+
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+a,
+button {
+	outline: none;
+	transition: $duration-normal;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: currentColor;
+}
+
+svg {
+	display: block;
+	flex: 0 0 auto;
+	width: 100%;
+	height: 100%;
+	fill: currentColor;
+}
+
+figure,
+picture {
+	display: inline-block;
+	margin: 0;
+	line-height: 0;
+
+	img {
+		width: 100%;
+	}
+}
+
+img {
+	vertical-align: top;
+	max-width: 100%;
+	user-select: none;
+}
+
+img[draggable="false"] {
+	pointer-events: none;
+	// stylelint-disable-next-line
+	-webkit-user-drag: none;
+}
+
+fieldset {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+video {
+	outline: none;
+	width: 100%;
+	height: 100%;
+}
+
+iframe {
+	display: block;
+}
+
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	text-align: center;
+	background-color: transparent;
+	transition: $duration-normal;
+	user-select: none;
+
+	&__primary {
+		padding: 0 24px;
+		height: 39px;
+		border: 2px solid var(--orange-color);
+		border-radius: 20px;
+		letter-spacing: 0.02em;
+		font-family: $font-secondary;
+		font-weight: 700;
+		font-size: 14px;
+		text-transform: uppercase;
+		color: #5F5F5F;
+
+		@include hover {
+			color: #fff;
+			background-color: var(--orange-color);
+		}
+	}
+
+	&__secondary {
+		padding: 0 30px;
+		height: 52px;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 20px;
+		color: #fff;
+		background-color: var(--orange-color);
+		border-radius: 32px;
+		border: 2px solid transparent;
+		text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+
+		@include hover {
+			color: var(--orange-color);
+			border-color: var(--orange-color);
+			background-color: transparent;
+			text-shadow: none;
+		}
+	}
+}
+
+.js-lazy-load:not(.is-loaded) {
+	max-height: 50vh;
+}
+
+.container {
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 100%;
+	max-width: 320px;
+
+	@include desktop {
+		max-width: 1431px;
+	}
+}
+
+.site {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; // fallback
+	// stylelint-disable-next-line
+	min-height: var(--vh);
+	overflow: hidden;
+}
+
+.title {
+	margin: 0;
+	padding-bottom: 6px;
+	position: relative;
+	font-family: $font-prata;
+	font-weight: 400;
+	font-size: 39px;
+	line-height: 40px;
+	color: var(--primary-color);
+
+	@include desktop {
+		font-size: 72px;
+		line-height: 117px;
+	}
+
+	span {
+    position: relative;
+		display: block;
+		margin-top: -22px;
+		font-family: $font-primary;
+		font-weight: 800;
+    font-size: 36px;
+    line-height: 36px;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: #F2F2F2;
+		z-index: -1;
+
+		@include desktop {
+			margin-top: -70px;
+			font-size: 72px;
+			line-height: 88px;
+		}
+	}
+}
+
+.large-line {
+	position: absolute;
+	width: 100vw;
+	height: max-content;
+	background-position: center;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.form-group {
+	position: relative;
+
+	&:not(:last-child) {
+		margin-bottom: 8px;
+		@include desktop {
+			margin-bottom: 16px;
+		}
+	}
+	
+	input,
+	textarea {
+		padding: 6px 24px;
+		width: 100%;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 28px;
+		color: #555555;
+		background: rgba(255, 242, 216, 0.5);
+		border-radius: 20px;
+		border: none;
+	}
+
+	textarea {
+		min-height: 104px;
+	}
+
+	&__btn {
+		margin-top: 24px;
+		@include desktop {
+			margin-top: 32px;
+		}
+	}
+}
+
+.to-top {
+	position: fixed;
+	right: 16px;
+	bottom: 50px;
+	opacity: 0;
+
+	@include mobile {
+		width: 28px;
+		height: 42px;
+	}
+
+	@include desktop {
+		right: 50px;
+		bottom: 100px;
+	}
+
+	@include hover {
+		animation: mover 1s infinite  alternate;
+	}
+}
+
+.swiper-scrollbar {
+	width: 100%;
+	height: 4px;
+	background: #EFEFEF;
+	border-radius: 2px;
+	margin-top: 24px;
+
+	&-drag {
+		background: #E4A444;
+		border-radius: 2px;
+		height: 4px;
+		cursor: pointer;
+	}
+}
+
+.swiper-button {
+	&-disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
+}
+
+/* stylelint-disable */
+/*
+* Немедленно переместите любую анимацию в конечную точку, если пользователь установил свое устройство в положение "prefers reduced motion".
+* Это может привести к плохим(непреднамеренным) последствиям. Удалите по мере необходимости и напишите свой собственный код для prefers-reduced-motion.
+*/
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*:before,
+	*:after {
+		animation-duration: 0.001s !important;
+		animation-delay: 0s !important;
+		transition-duration: 0.001s !important;
+		transition-delay: 0s !important;
+	}
+}
+/* stylelint-enable */
+@keyframes mover {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(-10px); }
+}

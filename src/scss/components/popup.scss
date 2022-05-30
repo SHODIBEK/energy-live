@@ -1,0 +1,172 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 56px 16px 48px;
+  max-width: 90%;
+  max-height: 90%;
+  background: #fff;
+  box-shadow: 0px 12px 52px rgba(194, 123, 57, 0.25);
+  border-radius: 16px;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  overflow: auto;
+
+  @include mobile {
+    width: 350px;
+  }
+
+  @include desktop {
+    padding: 72px 68px 64px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #E4A444;
+    cursor: pointer;
+
+    @include desktop {
+      width: 40px;
+      height: 40px;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 17px;
+      height: 2px;
+      background-color: #fff;
+      transform: translate(-50%, -50%);
+
+      @include desktop {
+        width: 24px;
+        height: 4px;
+      }
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    @include desktop {
+      margin-bottom: 32px;
+    }
+    h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-family: $font-prata;
+      font-size: 26px;
+      line-height: 35px;
+      color: var(--primary-color);
+      text-align: center;
+
+      @include desktop {
+        font-size: 32px;
+        line-height: 43px;
+      }
+    }
+
+    p {
+      text-align: center;
+      color: #868686;
+
+      @include mobile {
+        font-size: 14px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  &-session {
+    &__form {
+      display: grid;
+      @include desktop {
+        grid-template-columns: repeat(2, 278px);
+        column-gap: 20px;
+      }
+    }
+
+    .form-group__textarea {
+      @include desktop {
+        grid-row: 3/3;
+        grid-column: 1/3;
+      }
+    }
+
+    .form-group__btn {
+      justify-content: center;
+      display: flex;
+      @include desktop {
+        grid-row: 4/4;
+        grid-column: 1/3;
+        margin-top: 16px;
+      }
+    }
+  }
+
+  &-product {
+    &__form {
+      @include desktop {
+        width: 418px;
+      }
+    }
+  }
+
+  .form-group__btn {
+    justify-content: center;
+    display: flex;
+  }
+}
+
+.label-date {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.datepicker-container {
+  font-weight: 600;
+}
+
+.datepicker-top-left, 
+.datepicker-top-right {
+  border-top-color: var(--primary-color);
+
+  &::before {
+    border-bottom-color: #E7BA77;
+  }
+}
+
+.datepicker-panel > ul > li.picked, .datepicker-panel > ul > li.picked:hover {
+  color: var(--primary-color);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255, 0.5);
+  z-index: 99;
+}

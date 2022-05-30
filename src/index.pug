@@ -1,0 +1,33 @@
+extends pug/base
+
+prepend vars
+	//-
+
+append vars
+	- title = 'Главная страница'
+	- meta.description = 'Описание страницы'
+	- meta.viewport = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover'
+	- link.icon = './favicon/favicon.ico'
+	- link.appleTouchIcon180x180 = './favicon/apple-touch-icon.png'
+	- link.icon32x32 = './favicon/favicon-32x32.png'
+	- link.icon16x16 = './favicon/favicon-16x16.png'
+	- meta.formatDetection = 'telephone=no'
+	- meta.themeColor = '#E7BA77'
+	- defaultLink = 'javascript:void(0);'
+	- body.attrs = {'data-bs-spy': 'scroll', 'data-bs-target': '#navbar', 'data-bs-offset': '50'}
+
+block content
+	include pug/data
+
+	.site
+		include pug/components/header
+
+		include pug/pages/home
+
+		include pug/components/footer
+
+		include pug/components/top
+		include pug/components/nav
+		include pug/components/popup-session
+		include pug/components/popup-product
+	//- include pug/components/analytics

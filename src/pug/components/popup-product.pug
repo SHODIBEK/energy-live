@@ -1,0 +1,18 @@
+.modal.modal-product#product
+  .modal__close(title="Закрыть окно")
+  .modal__body
+    .modal__title
+      h2 Заказ продукции
+      p Заполните форму и мы свяжемся с вами <br> для подтверждения заказа
+    form.modal__form.modal-product__form
+      .form-group
+        input(type="text", name="name", placeholder="Как вас зовут?")
+      .form-group
+        input(type="tel", name="phone", placeholder="Ваш телефон")
+      .form-group
+        input(type="email", name="email", placeholder="Ваш e-mail")
+      .form-group
+        textarea(name="message", placeholder="Ваш комментарий")
+      .form-group__btn
+        button(type="submit").btn.btn__secondary
+          | Подтвердить

@@ -1,0 +1,41 @@
+header.header
+	.container
+		.header__wrapper
+			button.header__burger.btn.js-burger(type="button")
+				span
+				span
+				span
+			.header__nav
+				each object, key in data.header.menu
+					a.header__link.js-to-anchor(
+						href=object.url
+						title!=object.name
+						data-link=key
+					)
+						!= object.name
+			a.header__logo(href=data.header.links.logo)
+				img(src="./logo.svg", alt="logo")
+
+			nav.header__menu
+				.header__menu-wrapper
+					.header__menu-nav
+						each object, key in data.header.menu
+							a.header__menu-link.header__link.js-to-anchor(
+								href=object.url
+								title!=object.name
+								data-link=key
+							)
+								!= object.name
+					.header__list
+						each object, key in data.header.links.pages
+							a.header__button.btn.btn__primary(
+								href=`${baseDir}${object.url}.html`
+								title!=object.name
+							)
+								!=object.name
+					.header__menu-bottom
+						a(href="tel:+79818380385").header__menu-number
+							+svg('phone')
+							| +7 981 838 03 85
+						.header__menu-copyright
+							| &copy; 2022 Массаж Ирины Третьяковой. <br>Все права защищены

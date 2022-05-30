@@ -1,0 +1,49 @@
+main.massages
+  .container
+    .massages__wrapper
+      .massages__row
+        .massages__col
+          h1.massages__title.title
+            | Виды массажа
+            span все для вас
+          .massages__items
+            each object, index in data.massage.items
+              if(object.order == 1)
+                .massages__item
+                  a(href="massages-inner.html" title!=object.title).massages__image
+                    +lazyImage({
+                      src: `${baseDir}images/massages/item-${index+1}.jpg`,
+                      alt: object.title,
+                      appear: false,
+                    })
+                  h2.massages__name!=object.title
+                  p.massages__desc!=object.desc
+                  .massages__bottom
+                    a.massages__link(href="massages-inner.html")
+                      span Подробнее о массаже
+                      +svg('link').massages__icon
+                    button(type="button").btn.btn__primary.js-modal-session
+                      | Записать на сеанс
+        .massages__col
+          each object, index in data.massage.items
+            if(object.order == 2)
+              .massages__item
+                a(href="massages-inner.html" title!=object.title).massages__image
+                  +lazyImage({
+                    src: `${baseDir}images/massages/item-${index+1}.jpg`,
+                    alt: object.title,
+                    appear: false,
+                  })
+                h2.massages__name!=object.title
+                p.massages__desc!=object.desc
+                .massages__bottom
+                  a.massages__link(href="massages-inner.html")
+                    span Подробнее о массаже
+                    +svg('link').massages__icon
+                  button(type="button").btn.btn__primary.js-modal-session
+                    | Записать на сеанс
+          .massages__block
+            img(src="./images/list.svg", alt="").massages__block-bg
+            p
+              | С применением  Холистических техник, дыхательных техник в массаже, танатотехник и т.д.
+      include ../components/large-line

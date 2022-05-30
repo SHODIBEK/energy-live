@@ -1,0 +1,26 @@
+footer.footer
+  img(src="./images/footer-line.svg", alt="").footer__bg
+  .container 
+    .footer__wrapper
+      .footer__top
+        .footer__logo
+          img(src="./logo.svg", alt="logo")
+        .footer__nav
+          .footer__anchor
+            each object, key in data.header.menu
+              a.footer__link.js-to-anchor(
+                href=object.url
+                title!=object.name
+                data-link=key
+              )
+                != object.name
+          .footer__links
+            each object, key in data.header.links.pages
+              a.footer__button.btn.btn__primary(
+                href=`${baseDir}${object.url}.html`
+                title!=object.name
+              )
+                !=object.name
+      .footer__bottom
+        .footer__copyright
+          | &copy;&nbsp;2022 Массаж Ирины Третьяковой. Все права защищены

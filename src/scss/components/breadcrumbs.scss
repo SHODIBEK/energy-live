@@ -1,0 +1,42 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  @include desktop {
+    margin-bottom: 54px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #5F5F5F;
+
+    @include hover {
+      color: var(--primary-color);
+    }
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__icon {
+    display: inline-block;
+    margin-right: 8px;
+    width: 27px;
+    height: 11px;
+    fill: none;
+
+    @include desktop {
+      margin-right: 16px;
+      width: 35px;
+      height: 12px;
+    }
+  }
+}

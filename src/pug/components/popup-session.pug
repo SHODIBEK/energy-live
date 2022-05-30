@@ -1,0 +1,22 @@
+.modal.modal-session#session
+  .modal__close(title="Закрыть окно")
+  .modal__body
+    .modal__title
+      h2 Запись на сеанс массажа
+      p Заполните форму и мы свяжемся с вами <br>для подтверждения бронирования
+    form.modal__form.modal-session__form
+      .form-group
+        input(type="text", name="name", placeholder="Как вас зовут?")
+      .form-group
+        input(type="tel", name="phone", placeholder="Ваш телефон")
+      .form-group
+        input(type="email", name="email", placeholder="Ваш e-mail")
+      .form-group
+        input.date(type="text", name="date", placeholder="Дата сеанса", data-toggle="datepicker" readonly)
+        label(for="date").label-date
+          +svg('calendar')
+      .form-group.form-group__textarea
+        textarea(name="message", placeholder="Ваш комментарий")
+      .form-group__btn
+        button(type="submit").btn.btn__secondary
+          | Подтвердить

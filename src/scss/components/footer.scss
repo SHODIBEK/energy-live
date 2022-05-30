@@ -1,0 +1,130 @@
+.footer {
+  padding-bottom: 25px;
+  position: relative;
+  @include desktop {
+    padding-bottom: 40px;
+  }
+	&__top {
+    display: flex;
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+    @include desktop {
+      margin-bottom: 20px;
+      justify-content: space-between;  
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    @include mobile {
+      margin-top: 30px;
+    }
+  }
+
+  &__logo {
+    width: 136px;
+    height: 48px;
+    
+    @include desktop {
+      width: 276px;
+      height: 96px;
+    }
+  }
+
+  &__links {
+    display: flex;
+
+    @include mobile {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__anchor {
+    @include mobile {
+      margin-bottom: 24px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    @include desktop {
+      margin-right: 24px;
+    }
+  }
+
+  &__link {
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #5F5F5F;
+
+    @include hover {
+      color: var(--primary-color);
+    }
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 17px;
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+  }
+
+  &__button {
+    @include mobile {
+      height: 31px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+    @include desktop {
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+  }
+
+  &__bottom {
+    @include mobile {
+      margin-top: 24px;
+    }
+    @include desktop {
+      text-align: center;
+    }
+  }
+
+  &__copyright {
+    font-size: 12px;
+    line-height: 20px;
+    color: #555555;
+
+    @include mobile {
+      text-align: center;
+    }
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 28px;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: -250px;
+    z-index: -1;
+
+    @include desktop {
+      top: -100px;
+      right: -60px;
+    }
+  }
+}

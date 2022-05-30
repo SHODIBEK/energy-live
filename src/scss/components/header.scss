@@ -1,0 +1,230 @@
+.header {
+  padding: 20px 0;
+  @include desktop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 32px;
+    padding-bottom: 25px;
+    width: 100%;
+  }
+
+	&__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+	&__burger {
+		z-index: 100;
+		flex-direction: column;
+		margin: (-6.5px / 2) 0;
+    margin-right: auto;
+    flex: 0 0 40px;
+		width: 40px;
+    height: 40px;
+		color: $color-white;
+    background-color: #F4BF6E;
+    border-radius: 4px;
+
+		span {
+			display: block;
+			margin: 2px 0;
+      flex: 0 0 4px;
+      width: 24px;
+      height: 4px;
+      background: #FFFFFF;
+      border-radius: 2px;
+			transition: $duration-normal;
+		}
+
+		@include active {
+			span {
+				&:first-child {
+					transform: translate(0, 8px) rotate(-45deg);
+				}
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+				&:last-child {
+					transform: translate(0, -8px) rotate(45deg);
+				}
+			}
+		}
+
+    @include desktop {
+      display: none;
+    }
+	}
+
+  &__link {
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5F5F5F;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    @include desktop {
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+    }
+
+    @include hover {
+      color: var(--primary-color);
+    }
+  }
+
+  &__logo {
+    display: flex;
+    width: 136px;
+    height: 48px;
+
+    @include desktop {
+      width: 276px;
+      height: 96px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__list {
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  &__button {
+    &:not(:first-child) {
+      margin-top: 24px;
+    }
+    @include desktop {
+      &:not(:first-child) {
+        margin-left: 24px;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__menu {
+    @include mobile {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 98;
+      overflow: hidden;
+      overflow-y: auto;
+      margin: 0;
+      margin-top: 100px;
+      padding: 0 20px;
+      width: 100vw;
+      height: 100vh;
+      // stylelint-disable-next-line
+      height: calc(var(--vh) - 100px);
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100%);
+      transition: $duration-normal;
+      -webkit-overflow-scrolling: touch;
+
+      @include active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+    }
+
+    &-wrapper {
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+    }
+
+    &-nav {
+      @include mobile {
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &-link {
+      font-size: 18px;
+      line-height: 22px;
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+    }
+
+    &-bottom {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &-number {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      color: #555555;
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 13px;
+        display: inline-block;
+        width: 13.5px;
+        height: 19.5px;
+      }
+    }
+
+    &-copyright {
+      margin-top: 19px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      color: #555555;
+      text-align: center;
+    }
+  }
+}
+
+.inner-page {
+  .header {
+    position: inherit;
+  }
+}

@@ -1,0 +1,116 @@
+main.home
+  section.hero-section#hero
+    .hero-section__bg(style="background-image: url('./images/hero-image.png');")
+    .container
+      .hero-section__wrapper
+        .hero-section__text
+          strong.hero-section__txt
+            | Массаж
+          h1.hero-section__title
+            | Ирины Третьяковой
+          p.hero-section__subtitle
+            | Эффект массажа - естественная восстанавливающая сила организма, сила жизни
+          .hero-section__btn
+            button(type="button").btn.btn__secondary.js-modal-session
+              | Записаться на маcсаж
+        .hero-section__image
+          img(src="./images/irina.png", alt="Ирина Третьякова")
+  section.about-section#about
+    img(src="./images/blue-line.svg", alt="").about-section__blue-line
+    img(src="./images/green-line.svg", alt="").about-section__green-line
+    .about-section__logo(style="background-image: url('./images/icons/logo.svg');")
+    .container
+      .about-section__line(style="background-image: url('./images/line.svg');")
+      .about-section__wrapper
+        .about-section__text
+          h2.about-section__title.title
+            | О бомне
+            span О мастере
+          .about-section__block
+            strong.about-section__subtitle
+              | Здравствуйте! Меня зовут Ирина!
+            p
+              | — Я дипломированный мастер по массажу, <br>
+              | — Энергопрактик,<br>
+              | — Специалист по Эфирным Маслам,<br>
+              | — Ароматеропев  <br>
+              | С опытом работы более 10 лет. <br>
+              | Я постоянно совершенствую техники и навыки. Получаю новые знания и опыт. Результатом применения различных техник является:
+        .about-section__image
+          .about-section__img
+            img(src="./images/img1.png", alt="")
+      .about-section__lists
+        img(src="./images/dashed-line.svg", alt="").about-section__dasshed
+        each object, index in data.home.about.icons
+          .about-section__list(class=`about-section__list--${index+1}`)
+            img(src=`${baseDir}images/icons/${object.icon}.svg`, alt!=object.title).about-section__icon
+            span.about-section__txt!=object.title
+      .about-section__cards
+        include ../components/large-line
+        each block, index in data.home.about.blocks
+          .about-section__card(class=`about-section__card--${index+1}`)
+            .about-section__card-img
+              img(src=`./images/img${index+2}.png`, alt="")
+            .about-section__card-info(style=`background: ${block.color}`)!=block.title
+  section.review-section#reviews
+    img(src="./images/img5.jpg", alt="").review-section__img
+    .review-section__wrapper
+      h2.review-section__title.title
+        | Отывы
+        span ваше мнение
+      .review-section__block
+        img(src="./images/list.svg", alt="").review-section__bg
+        .review-section__review.review.swiper
+          .swiper-wrapper
+            .swiper-slide
+              .review__block
+                blockquote.review__text
+                  p А ещё непосредственные участники технического прогресса, вне зависимости от их уровня, должны быть описаны максимально подробно. С другой стороны, повышение уровня гражданского сознания играет определяющее значение для системы массового участия! Противоположная точка зрения подразумевает, что сторонники тоталитаризма в науке, превозмогая сложившуюся непростую экономическую ситуацию, рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок. Повседневная практика показывает, что граница обучения кадров не оставляет шанса для позиций, занимаемых участниками в отношении поставленных задач!
+                .review__bottom
+                  .review__name
+                    | Наталья
+                  .review__age 
+                    | 32 года
+          .review__navigation
+            .review__button-prev
+              +svg('swiper-left')
+            .review__button-next
+              +svg('swiper-right')
+  section.contact-section#contact
+    .container
+      .contact-section__wrapper
+        .contact-section__block
+          h2.contact-section__title.title
+            | Контакты
+            span всегда рады вам
+          .contact-section__text
+            p
+              | Мои уникальные способности  и Ваше желание почувствовать себя обновлёнными помогут достичь желаемого результата по адресу.
+          .contact-section__info
+            .contact-section__list
+              +svg('location').contact-section__icon
+              span г. Санкт-Петербург, ул. Малая Морская 11, офис 317
+            .contact-section__list
+              +svg('phone').contact-section__icon
+              span +7 981 838 03 85
+            .contact-section__list
+              +svg('email').contact-section__icon
+              span info@itmassage.com
+        .contact-section__form
+          form(action="/" method="POST").contact-form
+            img(src="./images/icons/logo.svg", alt="").contact-form__bg
+            .contact-form__title
+              | Есть вопросы? <br>Напишите нам 
+            .contact-form__block
+              .form-group
+                input#name(type="text", name="name", placeholder="Как вас зовут?", required)
+              .form-group
+                input#phone(type="text", name="phone", placeholder="Ваш телефон", required)
+              .form-group
+                input#email(type="email", name="email", placeholder="Ваш email", required)
+              .form-group
+                textarea#message(name="message" placeholder="Ваше сообщение")
+              .form-group__btn.contact-form__btn
+                button(type="submit").btn.btn__secondary
+                  | Отправить
+  .contact-section__bg(style='background-image: url("./images/contact-bg.png")')
